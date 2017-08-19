@@ -1,0 +1,13 @@
+# Main config file
+
+DEBUG=True
+
+scheme = "imaps://"
+hostname = "mail.example.com"
+username = "rootmails@example.com"
+password = "le_Huuuug3_p4$$WorT!"
+
+mailbox = "INBOX"
+
+URI = f"{scheme}{username}:{password}@{hostname}"
+
