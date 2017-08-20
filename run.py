@@ -1,7 +1,13 @@
 #!/usr/bin/env python3
 
-from config import *
-import imaplib, ssl, difflib, sys
+import sys
+
+try:
+    from config import *
+except ImportError:
+    sys.exit("Please create a config.py - See config.py.example for a template")
+
+import imaplib, ssl, difflib, sys, email
 
 # Todo
 ## Fetchmail and identify mail
@@ -29,6 +35,10 @@ except Error as e:
 typ, data = M.search(None, 'ALL')
 for num in data[0].split():
     typ, data = M.fetch(num, '(RFC822)')
-    print(f'Message {num}\n{data[0][1]}\n')
+    msg = email.message_from_bytes(data[0][1])
+    #print(f'Message {num}\n{data[0][1]}\n')
+    print(msg)
+    input("Press Enter to continue...")
+
 M.close()
 M.logout()
