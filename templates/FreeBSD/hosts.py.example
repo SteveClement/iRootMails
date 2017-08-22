@@ -1,0 +1,16 @@
+# This lists all the FreeBSD 11.1 hosts that should be considered
+myHostname = dict()
+myOtherHostname = dict()
+myLastHostname = dict()
+
+myHostname['hostname'] = 'myHostname'
+myOtherHostname['hostname'] = 'myOtherHostname'
+myLastHostname['hostname'] = 'myLastHostname'
+
+myHostname['domain'] = myOtherHostname['domain'] = myLastHostname['domain'] = 'example.org'
+myHostname['version'] = myOtherHostname['version'] = myLastHostname['version'] = '11.1'
+
+hosts = [myHostname, \
+         myOtherHostname, \
+         myLastHostname, \
+        ]

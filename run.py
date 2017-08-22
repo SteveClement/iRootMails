@@ -9,6 +9,9 @@ except ImportError:
 
 import imaplib, ssl, difflib, sys, email
 
+### /!\ Static import of OS template dir
+from templates.FreeBSD.hosts import *
+
 # Todo
 ## Fetchmail and identify mail
 ## Once identified diff template with mail
@@ -37,7 +40,7 @@ for num in data[0].split():
     typ, data = M.fetch(num, '(RFC822)')
     msg = email.message_from_bytes(data[0][1])
     #print(f'Message {num}\n{data[0][1]}\n')
-    print(msg)
+    print(msg.get_payload())
     input("Press Enter to continue...")
 
 M.close()
